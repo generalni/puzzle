@@ -6,18 +6,22 @@ html {
 }
 
 main {
-  max-width: 960px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+h1 {
+  margin: 1rem;
+  font-size: 4rem;
+}
+
 #container {
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  width: 240px;
+  width: 480px;
 }
 
 .polja,
@@ -26,11 +30,11 @@ main {
   cursor: pointer;
   user-select: none;
   color: white;
-  font-size: 2rem;
+  font-size: 4rem;
   box-sizing: border-box;
   border: 1px solid lightgrey;
-  width: 60px;
-  height: 60px;
+  width: 120px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,10 +58,10 @@ main {
   color: darkorange;
   background-color: white;
   border: 1px solid darkorange;
-  font-size: 1rem;
+  font-size: 2rem;
   display: inline-block;
   text-align: center;
-  width: 240px;
+  width: 480px;
   padding: 1rem 0;
   cursor: pointer;
   transition: color 200ms ease-in,
