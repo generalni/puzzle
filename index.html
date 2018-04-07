@@ -1,124 +1,20 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
-		    <title>Slagalica</title>
-		    <meta name="description" content="Projekat Javascript">
-		    <meta name="keywords" content="projekat, kurs, javascript">
-		    <meta name="author" content="Nikola Stojanovic">
-		    <meta charset="UTF-8">
-		    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-			<script>
-				
-				var niz=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-				var niz1=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]; // ovaj sluzi za poredjenje
-				var br=niz.length;
-				
-				function izmesaj()
-				{
-					for(var i = niz.length - 1; i > 0; i--)
-					{
-    					var j = Math.floor(Math.random() * (i + 1));
-    					tmp = niz[i];
-    					niz[i] = niz[j];
-    					niz[j] = tmp;
-					}
-				}
-				
-				function gen()
-				{	
-					var brojac=0;
-					var container=document.getElementById("container");
-					for (var i=0; i<niz.length; i++)
-					{	
-						if(niz[i]!=0)
-							{
-								container.innerHTML+='<div onclick="premesti('+i+')" class="polja">'+niz[i]+'</div>';
-							}
-						else	// samo vrednost 0 ima belu pozadinu
-							{
-								container.innerHTML+='<div onclick="premesti('+i+')" class="polja" style="background-color:white">'+niz[i]+'</div>';
-							}
-
-
-						if (brojac==3 || brojac==7 || brojac==11 || brojac==15)	// slaze divove u kvadratni oblik
-							{
-								container.innerHTML+='<br>';
-								brojac=brojac+1;
-							}
-						else
-							{
-								brojac=brojac+1;
-							}
-					}
-				}
-
-				function cisti()	// cisti div kako bi mogao da prikaze novu tablu
-				{
-					container.innerHTML='';
-				}
-				
-				function premesti(a)	// premesta polje u prazno polje
-				{
-					if(niz[a-4]==0)
-						{
-							priv=niz[a-4];
-							niz[a-4]=niz[a];
-							niz[a]=priv;
-						}
-					else if(niz[a+4]==0)
-						{
-							priv=niz[a+4];
-							niz[a+4]=niz[a];
-							niz[a]=priv;
-						}
-					else if(niz[a-1]==0)
-						{
-							priv=niz[a-1];
-							niz[a-1]=niz[a];
-							niz[a]=priv;
-						}
-					else if(niz[a+1]==0)
-						{
-							priv=niz[a+1];
-							niz[a+1]=niz[a];
-							niz[a]=priv;
-						}
-					cisti();
-					gen();
-					pobeda();
-					return(niz);
-				}
-
-				function pobeda()	// poruka koju igrica izbacuje kada su elementi niza poredjani po redu
-				{
-					for(i=0;i<niz.length;i++)
-					{
-						if(niz[i]==niz1[i])
-						{	
-							br=br-1;
-							if(br==0)
-							{
-								alert("bravotiga");
-							}
-						}
-						else
-						{
-							br=niz.length;
-						}
-					}
-				}
-				
-			</script>
+    <title>Slagalica</title>
+    <meta name="description" content="Slagalica Javascript">
+    <meta name="keywords" content="slagalica, javascript">
+    <meta name="author" content="Nikola Stojanovic">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="./js/script.js"></script>
 	</head>
 
 	<body onload="izmesaj(); gen();">
-	
-		<h1>Slagalica 4x4</h1>
-		<hr>
-		<input type="button" value="Generiši novu slagalicu" onclick="cisti(); izmesaj(); gen();">
-		<div id="container"></div>
-		
+		<main>
+			<h1>Slagalica 4x4</h1>
+			<div class="button" onclick="cisti(); izmesaj(); gen();">Generiši novu slagalicu</div>
+			<div id="container"></div>
+		</main>
 	</body>
-
 </html>
