@@ -7,14 +7,14 @@ var imeIgraca;
 function napraviTablu() {
 	for (var i = 0; i < niz.length; i++) {
 		if (niz[i] != 0)	{
-			$("#container").append('<div onclick="klik('+i+')" class="polje">'+niz[i]+'</div>');
+			$("#container").append('<div class="polje" onclick="klik('+i+')">'+niz[i]+'</div>');
 		}	else {
 			$("#container").append('<div class="polje-prazno">'+niz[i]+'</div>'); // samo vrednost 0 ima belu pozadinu
 		}
 	}
 }
 
-function izmesaj() {
+function izmesajNiz() {
 	for (var i = niz.length - 1; i > 0; i--) {
 		var nasumicniBroj = Math.floor(Math.random() * (i + 1));
 		tmp = niz[i];
@@ -62,6 +62,7 @@ function unosImena() {
 		$("#prozor").css("display", "none");
 		$("main").css("display", "flex");
 		napraviTablu();
+		$("#container").css("pointer-events", "none");
 		return imeIgraca;
 	}
 }
@@ -89,13 +90,18 @@ function provera() {
 						"pointer-events" : "auto",
 						"cursor" : "pointer"
 					});
-					cisti();
-					izmesaj();
-					napraviTablu();
+					novaIgra();
 				});
 			}
 		}	else {
 			brojNeslozenihPolja = niz.length;
 		}
 	}
+}
+
+function novaIgra() {
+	cisti();
+	izmesajNiz();
+	napraviTablu();
+	$("#container").css("pointer-events", "auto");
 }
