@@ -6,16 +6,23 @@
     <meta name="keywords" content="slagalica, javascript">
     <meta name="author" content="Nikola Stojanovic">
     <meta charset="UTF-8">
+    <link href="./css/reset.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./js/script.js"></script>
 	</head>
 
-	<body onload="izmesaj(); gen();">
+	<body>
+		<div id="prozor">
+			<h1>Slagalica 4x4</h1>
+  		<span>Unesite ime</span>
+  		<input type='text' id='ime' name='fname' maxlength='10'>
+  		<div class='button' onclick='unosImena();'>OK</div>
+  	</div>
 		<main>
 			<h1>Slagalica 4x4</h1>
-			<div class="button" onclick="cisti(); izmesaj(); gen();">Generiši novu slagalicu</div>
+			<div class="button" onclick="cisti(); izmesaj(); napraviTablu()">Generiši novu tablu</div>
 			<div id="container"></div>
-			<div id="pravila"></div>
 		</main>
 	</body>
 </html>

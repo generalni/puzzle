@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto:400');
 
 html {
   font-family: "Roboto", sans-serif;
@@ -6,15 +6,19 @@ html {
 }
 
 main {
-  margin: 0 auto;
-  display: flex;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
 }
 
 h1 {
   margin: 1rem;
   font-size: 4rem;
+  user-select: none;
 }
 
 #container {
@@ -24,8 +28,8 @@ h1 {
   width: 480px;
 }
 
-.polja,
-.prazno-polje {
+.polje,
+.polje-prazno {
   border-color: black;
   cursor: pointer;
   user-select: none;
@@ -43,26 +47,25 @@ h1 {
   background-color 200ms ease-in;
 }
 
-.polja:hover {
+.polje:hover {
   color: darkorange;
   background-color: white;
 }
 
-.prazno-polje {
+.polje-prazno {
   cursor: default;
   background-color: white;
 }
 
 .button {
   user-select: none;
-  box-sizing: border-box;
   color: darkorange;
   background-color: white;
   border: 1px solid darkorange;
   font-size: 2rem;
   display: inline-block;
   text-align: center;
-  width: 480px;
+  width: 100%;
   padding: 1rem 0;
   cursor: pointer;
   transition: color 200ms ease-in,
@@ -72,5 +75,29 @@ h1 {
 .button:hover {
   color: white;
   background-color: darkorange;
-  border: 1px solid white;
+}
+
+input {
+  text-align: center;
+  margin: 1rem 0;
+  resize: none;
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+}
+
+#prozor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-size: 2rem;
+  background-color: darkorange;
+  color: white;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
